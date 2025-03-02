@@ -48,6 +48,10 @@ const RSignIn = () => {
     }
   })
 
+  const handleForgotPasswordClick = ()=>{
+    navigate("/auth/forgot-password?role=restaurant")
+  }
+
   
 
 
@@ -110,6 +114,12 @@ const RSignIn = () => {
                   }
 
                 </div>
+                <div className="flex justify-end items-center text-[0.7rem] w-full">
+                        <span 
+                        className="cursor-pointer text-gray-700"
+                        onClick={handleForgotPasswordClick}
+                        >Forgot Password ?</span> 
+                    </div>
                   <ErrorMessage
                     name="password"
                     component={"p"}

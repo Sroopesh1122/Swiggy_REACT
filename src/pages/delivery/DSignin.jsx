@@ -42,6 +42,10 @@ const DSignin = () => {
         navigate("/swiggy/auth/otp?user=delivery");
       };
 
+      const handleForgotPasswordClick = () => {
+        navigate("/auth/forgot-password?role=delivery");
+      };
+
 
   return (
     <section className="w-full h-screen p-2 md:p-5 relative">
@@ -107,6 +111,14 @@ const DSignin = () => {
                         )}
                       </span>
                     </div>
+                    <div className="flex justify-end items-center text-[0.7rem] w-full">
+                    <span
+                      className="cursor-pointer text-gray-700"
+                      onClick={handleForgotPasswordClick}
+                    >
+                      Forgot Password ?
+                    </span>
+                  </div>
                     <ErrorMessage
                       name="password"
                       className="text-[0.7rem] text-red-500"

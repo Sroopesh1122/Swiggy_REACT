@@ -43,6 +43,10 @@ const Login = () => {
     navigate("/swiggy/auth/otp?user=customer");
   };
 
+  const handleForgotPasswordClick = ()=>{
+    navigate("/auth/forgot-password?role=customer")
+  }
+
   return (
     <section className="w-full h-screen max-w-[1800px] mx-auto">
       {/* For Desktop View */}
@@ -142,6 +146,12 @@ const Login = () => {
                         )}
                       </span>
                     </div>
+                    <div className="flex justify-end items-center text-[0.7rem] w-full">
+                        <span 
+                        className="cursor-pointer text-gray-700"
+                        onClick={handleForgotPasswordClick}
+                        >Forgot Password ?</span> 
+                    </div>
                     <ErrorMessage
                       name="password"
                       className="text-[0.7rem] text-red-500"
@@ -158,6 +168,12 @@ const Login = () => {
                     >
                       Login { signInMutation.isPending && <Loader /> }
                     </button>
+                  </div>
+
+                  <div className="my-4 flex justify-center items-center w-full gap-1">
+                     <hr  className="flex-1"/>
+                      <span className="text-[0.7rem]">OR</span>
+                     <hr className="flex-1" />
                   </div>
 
                   <div className="w-full flex justify-center items-center mt-4">

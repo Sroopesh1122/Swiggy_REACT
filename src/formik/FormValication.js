@@ -81,3 +81,16 @@ export const foodItemUpdateValidationSchema = Yup.object().shape({
   available : Yup.string().required("Required")
 })
 
+
+export const forgotPasswordValidationSchema = Yup.object().shape({
+  email : Yup.string().required("Required").email("Invalid email")
+})
+
+
+export const resetPasswordValidationSchema = Yup.object().shape({
+  password: Yup.string().required("Required"),
+  cpassword: Yup.string()
+        .required("Required")
+        .oneOf([Yup.ref("password"), null], "Passwords must match"),
+})
+

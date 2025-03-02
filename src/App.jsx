@@ -34,6 +34,8 @@ import DHome from "./pages/delivery/DHome";
 import DDeliveries from "./pages/delivery/DDeliveries";
 import DOrders from "./pages/delivery/DOrders";
 import DOrderItem from "./pages/delivery/DOrderItem";
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +53,8 @@ function App() {
             <Route path="/restaurant/signin" element={<RSignIn />} />
             <Route path="/delivery/signup" element={<DSignup/>} />
             <Route path="/delivery/signin" element={<DSignin/>} />
+            <Route path="/auth/forgot-password" element={<ForgetPassword/>}/>
+            <Route path="/auth/reset-password" element={<ResetPassword/>}/>
 
 
             <Route path="/" element={<Wrapper/>}>
