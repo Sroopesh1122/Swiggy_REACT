@@ -5,6 +5,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { serverUrlAPI } from '../../utils/Infos';
 import { axiosInstance } from '../../utils/axiosInstance';
 import PageLoder from '../../components/PageLoder';
+import Footer from '../../components/Footer';
 
 const RWrapper = () => {
 
@@ -36,6 +37,7 @@ const RWrapper = () => {
     <section className='w-full max-w-[1800px] mx-auto'>
        <RNavbar/>
        <Outlet/>
+       <Footer/>
     </section>
   )
 }

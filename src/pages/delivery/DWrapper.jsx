@@ -5,6 +5,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { axiosInstance } from '../../utils/axiosInstance'
 import { serverUrl } from '../../utils/Infos'
 import PageLoder from '../../components/PageLoder'
+import Footer from '../../components/Footer'
 
 const DWrapper = () => {
 
@@ -43,6 +44,7 @@ const DWrapper = () => {
         <section className='mx-auto w-full max-w-[1200px]'>
          <Outlet/>
         </section>
+        <Footer/>
     </section>
   )
 }
