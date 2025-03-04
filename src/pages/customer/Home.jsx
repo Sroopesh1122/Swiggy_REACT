@@ -6,6 +6,7 @@ import Skeleton from "react-loading-skeleton";
 import { MapIcon, MapPin } from "lucide-react";
 import ReactStars from "react-rating-stars-component";
 import { useNavigate } from "react-router-dom";
+import plate from '../../assets/img/img8.png'
 const Home = () => {
   const features = [
     {
@@ -55,7 +56,12 @@ const Home = () => {
 
   return (
     <>
-      <section className="flex flex-col lg:flex-row justify-center items-center  p-2 lg:h-[70vh]">
+      <section className="flex flex-col lg:flex-row justify-center items-center  p-2 lg:h-[70vh] relative overflow-hidden">
+
+         <div className="hidden lg:block absolute w-[1000px] h-[1000px] top-0 right-0 bg-yellow-500 rounded-full translate-x-[40%] -z-50">
+
+         </div>
+
         <article className="w-full flex justify-center items-start flex-col h-full">
           <span className="text-[3.5rem] lg:text-[4rem] font-extrabold">
             Order Your
@@ -75,9 +81,9 @@ const Home = () => {
 
         <article>
           <img
-            src="https://img.freepik.com/premium-photo/funny-guy-holding-burger-craving-sandwich-studio_116547-18624.jpg"
+            src={plate}
             alt=""
-            className="w-[800px]"
+            className="w-[300px] md:w-[500px] ld:w-[700px] duration-700 hover:scale-110"
           />
         </article>
       </section>

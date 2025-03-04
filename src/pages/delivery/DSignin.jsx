@@ -8,6 +8,7 @@ import axios from "axios";
 import { getErrorMessage, serverUrl } from "../../utils/Infos";
 import toast from "react-hot-toast";
 import { customerLoginValidation } from "../../formik/FormValication";
+import deliveryGirl from '../../assets/img/delivery-girl.png'
 
 const DSignin = () => {
 
@@ -48,9 +49,11 @@ const DSignin = () => {
 
 
   return (
-    <section className="w-full h-screen p-2 md:p-5 relative">
+    <section className="w-full h-screen p-2 md:p-5 relative flex justify-center items-center gap-3">
+
+      <img src={deliveryGirl} alt=""  className="hidden md:flex w-[400px] h-[400px] translate-x-[-20%] duration-500 hover:translate-x-0"/>
       <article 
-      className="p-3 rounded-lg shadow-md absolute top-[50%] translate-y-[-50%] right-[50%] translate-x-[50%] md:right-8 md:translate-x-[0%] w-full max-w-[300px] md:max-w-[350px]">
+      className="p-3 rounded-lg shadow-md  w-full max-w-[300px] md:max-w-[350px] translate-x-0 md:translate-x-[20%]">
         <Formik
          initialValues={{ email: "", password: "" }}
          validationSchema={customerLoginValidation}
@@ -157,7 +160,7 @@ const DSignin = () => {
                   </div>
                 </Form>
               )}
-            </Formik>
+        </Formik>
       </article>
     </section>
   );

@@ -368,8 +368,8 @@ export const SimilarFoodCard = ({ data }) => {
   return (
     <article 
      onClick={handleCardClick}
-     className="w-[180px] md:w-[280px] p-2 shadow-sm hover:shadow-lg rounded-xl flex flex-col justify-start items-start flex-shrink-0 flex-grow-0 duration-500 hover:scale-95 cursor-pointer">
-      <img src={img} alt="" className="w-full h-[100px] md:h-[180px] rounded-md" />
+     className="w-[180px] md:w-[250px] p-2 shadow-sm hover:shadow-lg rounded-xl flex flex-col justify-start items-start flex-shrink-0 flex-grow-0 duration-500 hover:scale-95 cursor-pointer">
+      <img src={img} alt="" className="w-full h-[100px] md:h-[150px] rounded-md" />
       <h1 className=" flex justify-start items-center w-full">
         <span className="text-[0.98rem] md:text-[1.2rem] font-semibold w-full whitespace-nowrap overflow-hidden text-ellipsis">{name}</span>
       </h1>
