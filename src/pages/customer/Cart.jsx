@@ -8,6 +8,7 @@ import { IndianRupee, Minus, Plus, Trash } from "lucide-react";
 import { calculateDiscount } from "./Menu";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import dog from '../../assets/img/dog.jpg'
 
 const Cart = () => {
   const [cartDetails, setcartDetails] = useState([]);
@@ -87,7 +88,8 @@ const Cart = () => {
 
   if (cartData?.length === 0) {
     return (
-      <section className="w-full h-[80vh] flex justify-center items-center">
+      <section className="w-full h-[80vh] flex justify-center items-center flex-col">
+        <img src={dog} alt="" className="w-[300px] h-[300px]"  />
         <span className="text-[2rem]">Your Cart Is Empty</span>
       </section>
     );

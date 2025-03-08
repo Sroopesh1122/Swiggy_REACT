@@ -124,7 +124,7 @@ const OrderItem = () => {
   return (
     <section className="p-2 md:p-4 w-full">
       <article className="flex flex-col md:flex-row w-full justify-start items-start gap-2 relative">
-        <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-[0.8rem] border border-[#ededed]">
+        <span className={`absolute top-3 right-3 px-3 py-1 rounded-full text-[0.8rem] border border-[#ededed] capitalize ${status === "delivered" && "bg-green-500 text-white"}`}>
           {status}
         </span>
         <img
@@ -161,11 +161,11 @@ const OrderItem = () => {
         </div>
       </article>
       <article className="w-full flex justify-start items-center mt-3 gap-2">
-        {"pending" === status.toLowerCase() && (
+        {/* {"pending" === status.toLowerCase() && (
           <button className="text-[0.8rem] rounded-full px-3 py-1 bg-red-500 text-white">
             Cancel
           </button>
-        )}
+        )} */}
         {(reviewed === 0 && (status.toLowerCase() === "delivered")) && (
           <button onClick={handleReviewClick} className="text-[0.8rem] rounded-full border border-[#efefef] px-3 py-1">
             Leave Review

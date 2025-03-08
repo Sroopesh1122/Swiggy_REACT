@@ -6,10 +6,10 @@ import { getErrorMessage, serverUrlAPI } from "../../utils/Infos";
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useDebounce } from "use-debounce";
-import Skeleton from "react-loading-skeleton";
 import Error from "../../components/Error";
 import PageLoder from "../../components/PageLoder";
 import { Oval } from "react-loader-spinner";
+import dog from '../../assets/img/dog.jpg'
 
 const RMenuList = () => {
   const navigate = useNavigate();
@@ -106,7 +106,11 @@ const RMenuList = () => {
         </article>
       </section>
 
-      <InfiniteScroll
+      {
+       menuItem?.length ===  0  ? <section className="w-full h-[60vh] flex justify-center items-center flex-col">
+               <img src={dog} className="w-[300px] h-[300px]" alt="" />
+               <span>No Food Found</span>
+        </section>  : <InfiniteScroll
         dataLength={menuItem ? menuItem?.length : 0}
         next={fetchNextPage}
         hasMore={hasNextPage}
@@ -134,6 +138,8 @@ const RMenuList = () => {
 
         <div className="w-full h-[10vh]"></div>
       </InfiniteScroll>
+      }   
+      
     </>
   );
 };

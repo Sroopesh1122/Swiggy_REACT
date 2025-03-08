@@ -60,28 +60,30 @@ const Orders = () => {
       {orderLoading ? (
         <PageLoder />
       ) : (
-        <>
-          <section className="p-0 md:p-2 w-full">
-            {orderListItem?.map((order, idx) => (
-              <OrderItemCard key={idx} data={order} />
-            ))}
-            {isFetchingNextPage && (
-              <div className="w-full flex justify-center items-center mt-3">
-                <ContentLoader />
-              </div>
-            )}
-            {hasNextPage && (
-              <div className="w-full flex justify-center items-center mt-3">
-                <span
-                  className="text-[0.8rem] text-gray-600 cursor-pointer"
-                  onClick={fetchNextPage}
-                >
-                  Load More
-                </span>
-              </div>
-            )}
-          </section>
-        </>
+        orderListItem?.length >0 ? <>
+        <section className="p-0 md:p-2 w-full">
+          {orderListItem?.map((order, idx) => (
+            <OrderItemCard key={idx} data={order} />
+          ))}
+          {isFetchingNextPage && (
+            <div className="w-full flex justify-center items-center mt-3">
+              <ContentLoader />
+            </div>
+          )}
+          {hasNextPage && (
+            <div className="w-full flex justify-center items-center mt-3">
+              <span
+                className="text-[0.8rem] text-gray-600 cursor-pointer"
+                onClick={fetchNextPage}
+              >
+                Load More
+              </span>
+            </div>
+          )}
+        </section>
+      </> : <section className="flex w-full h-[60vh] justify-center items-center">
+             <span>No Orders Found</span>
+      </section>
       )}
     </section>
   );
@@ -94,6 +96,9 @@ const OrderItemCard = ({ data }) => {
   const { MenuItem } = orderItem[0];
   const { name, img, description, itemId } = MenuItem;
   const navigate = useNavigate();
+
+
+  console.log(data)
 
   const handleCardClick = () => {
     navigate("/order/item", {
@@ -139,11 +144,11 @@ const OrderItemCard = ({ data }) => {
         />
       </article>
       <article className="w-full flex justify-end items-center mt-3 gap-2">
-        {"pending" === status.toLowerCase() && (
+        {/* {"pending" === status.toLowerCase() && (
           <button className="text-[0.8rem] rounded-full px-3 py-1 bg-red-500 text-white">
             Cancel
           </button>
-        )}
+        )} */}
         {(reviewed === 0   && "delivered" === status.toLowerCase()) && (
           <button
             onClick={handleReviewClick}
@@ -158,5 +163,5 @@ const OrderItemCard = ({ data }) => {
 };
 
 const StatusTag = ({ value }) => {
-  return <span className="text-[0.7rem] p-1 px-2  rounded-full ">{value}</span>;
+  return <span className={`text-[0.7rem] p-1 px-2  rounded-full capitalize ${value ==="delivered" && "bg-green-500 text-white"}`}>{value}</span>;
 };
