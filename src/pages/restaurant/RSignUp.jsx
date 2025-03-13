@@ -7,12 +7,13 @@ import { getErrorMessage, serverUrl } from "../../utils/Infos";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Loader from "../../components/Loader";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const RSignUp = () => {
 
   const [showPassword,setShowPassword] = useState(false);
   const [searchParam] = useSearchParams();
+  const navigate = useNavigate()
 
   const verifiedEmail = searchParam.get("email")
   const handlePassworModeChange =()=>{
@@ -34,6 +35,9 @@ const RSignUp = () => {
      localStorage.setItem("token",token);
          toast.success("Account Created")
          console.log(data)
+         setTimeout(()=>{
+            navigate("/restaurant")
+         },500)
     },
     onError:(error)=>{
       console.error(error)
@@ -43,8 +47,8 @@ const RSignUp = () => {
 
 
   return (
-    <section className="w-full h-screen bg-white relative">
-      <article className="p-2 md:p-5 w-[300px] md:w-[400px] absolute top-[50%] -translate-y-[50%] right-5 rounded-lg shadow-md bg-white">
+    <section className="w-full h-screen bg-white relative flex justify-center items-center">
+      <article className="p-2 md:p-5 w-[300px] md:w-[400px] rounded-lg shadow-md bg-white">
         <h1 className="text-center text-3xl">Restaurant Sign Up</h1>
         <Formik
          initialValues={{name:"",email:verifiedEmail,address:"",password:"",cpassword:"",phoneNumber:""}}
@@ -202,7 +206,7 @@ const RSignUp = () => {
                   </div>
                    
                    <p className="mt-2 text-center w-full text-[0.75rem]">
-                    Already have an account ? <span>Sign In</span>
+                    Already have an account ? <span className="cursor-pointer" onClick={()=>navigate("/restaurant/signin")}>Sign In</span>
                    </p>
               </Form>
             );

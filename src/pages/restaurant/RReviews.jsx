@@ -44,14 +44,19 @@ const RReviews = () => {
     queryKey: ["reviews"],
     queryFn: fetchReviews,
     getNextPageParam: (lastPage) => {
+
+      console.log(lastPage)
       const prevPage = lastPage.prevParam;
       const { totalPages } = lastPage;
-      if (prevPage === totalPages) {
+      if (prevPage  == totalPages) {
         return undefined;
       }
       return prevPage + 1;
     },
   });
+
+
+  console.log(reviewData)
 
   if (reviewLoading) {
     return <PageLoder />;
@@ -81,7 +86,7 @@ const RReviews = () => {
           <ContentLoader />
         </div>
       )}
-      {reviewHasNextPage && (
+      {(reviewHasNextPage && reviewsList?.length !== 0 ) && (
         <div className="w-full flex justify-center items-center my-2">
           <span
             className="text-[0.8rem] text-gray-700 cursor-pointer"

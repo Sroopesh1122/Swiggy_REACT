@@ -170,7 +170,7 @@ const OrderCard = ({ data }) => {
         </div>
         <div className="flex justify-end items-center mt-2">
           <button disabled={pickOrderMutation.isPending} onClick={()=>pickOrderMutation.mutate()} className="px-2 py-1 text-[0.8rem] bg-orange-600 text-white rounded-full flex justify-center items-center gap-2">
-            Add Your Bag <ShoppingBag size={12} /> {pickOrderMutation.isPending ? <Loader/> : <></>}
+            Take Order <ShoppingBag size={12} /> {pickOrderMutation.isPending ? <Loader/> : <></>}
           </button>
         </div>
       </article>

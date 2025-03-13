@@ -52,6 +52,9 @@ const Cart = () => {
     queryFn: getCartItems,
   });
 
+
+  console.log(cartData)
+
   useEffect(() => {
     if (cartData) {
       const filtereData = cartData?.map((data, idx) => {
@@ -83,6 +86,7 @@ const Cart = () => {
   }
 
   if (isCartError) {
+    console.log(cartError)
     return <Error message={getErrorMessage(cartError)} />;
   }
 
@@ -249,14 +253,14 @@ const Cart = () => {
 export default Cart;
 
 const CartCard = ({ data, onQuantityChange = () => {} }) => {
-  const { cartId, menuItem } = data;
+  const { cartId, menuItem } = data || {};
   const [quantity, setQuantity] = useState(1);
 
   const queryClient = useQueryClient();
 
   const navigate = useNavigate();
 
-  const { name, img, price, discount, available } = menuItem;
+  const { name, img, price, discount, available } = menuItem || {};
 
   const deleteCartItem = async () => {
     const response = await axiosInstance.delete(`${serverUrlAPI}cart/`, {

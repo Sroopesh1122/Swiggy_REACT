@@ -50,8 +50,8 @@ const DSignup = () => {
 
 
   return (
-    <section className="w-full h-screen bg-white relative">
-      <article className="p-2 md:p-5 w-[300px] md:w-[400px] absolute top-[50%] -translate-y-[50%] right-5 rounded-lg shadow-md bg-white">
+    <section className="w-full h-screen bg-white relative flex justify-center items-center">
+      <article className="p-2 md:p-5 w-[300px] md:w-[400px]  rounded-lg shadow-md bg-white">
         <h1 className="text-center text-3xl">User Sign Up</h1>
         <Formik
          initialValues={{name:"",email:verifiedEmail,vehicleNumber:"",password:"",cpassword:"",phoneNumber:""}}

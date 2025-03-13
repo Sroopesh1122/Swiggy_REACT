@@ -26,7 +26,6 @@ const MenuItem = () => {
     if (menuId === null) {
       return;
     }
-
     const response = await axiosInstance.get(`${serverUrlAPI}menu/${menuId}`);
     return response.data;
   };

@@ -93,7 +93,7 @@ export default Orders;
 
 const OrderItemCard = ({ data }) => {
   const { orderItem, status, reviewed, orderId } = data;
-  const { MenuItem } = orderItem[0];
+  const { MenuItem , } = orderItem[0];
   const { name, img, description, itemId } = MenuItem;
   const navigate = useNavigate();
 

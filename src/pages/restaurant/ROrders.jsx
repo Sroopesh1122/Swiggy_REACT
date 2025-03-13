@@ -20,7 +20,7 @@ const ROrders = () => {
     "Pending",
     "Preparing",
     "Prepared",
-    "Out For Delivery",
+    "Out of Delivery",
     "Delivered",
   ];
 
@@ -103,36 +103,38 @@ const ROrders = () => {
         ))}
       </article>
 
-      {!orderLoading && orderItemList?.length === 0 ? (
-        <article className="w-full h-[80vh] flex justify-center items-center">
-          <span className="text-[1rem] md:text-[1.5rem] text-gray-600">
-            No Order Found
-          </span>
-        </article>
-      ) : (
-        <article className="p-2">
-          {orderItemList?.map((order, idx) => (
-            <OrderCard data={order} key={idx} />
-          ))}
-
-          {orderFetchingNextPage && (
-            <div className="w-full flex justify-center items-center py-3">
-              <ContentLoader />
-            </div>
-          )}
-
-          {hasOrdersNext && (
-            <div className="w-full flex justify-center items-center py-3">
-              <span
-                className="text-[0.8rem] text-gray-600 cursor-pointer"
-                onClick={fetchNextPage}
-              >
-                Load More
-              </span>
-            </div>
-          )}
-        </article>
-      )}
+      {
+        orderLoading ? <PageLoder/> : (!orderLoading && orderItemList?.length === 0 ? (
+          <article className="w-full h-[80vh] flex justify-center items-center">
+            <span className="text-[1rem] md:text-[1.5rem] text-gray-600">
+              No Order Found
+            </span>
+          </article>
+        ) : (
+          <article className="p-2">
+            {orderItemList?.map((order, idx) => (
+              <OrderCard data={order} key={idx} />
+            ))}
+  
+            {orderFetchingNextPage && (
+              <div className="w-full flex justify-center items-center py-3">
+                <ContentLoader />
+              </div>
+            )}
+  
+            {hasOrdersNext && (
+              <div className="w-full flex justify-center items-center py-3">
+                <span
+                  className="text-[0.8rem] text-gray-600 cursor-pointer"
+                  onClick={fetchNextPage}
+                >
+                  Load More
+                </span>
+              </div>
+            )}
+          </article>
+        ))
+      }
     </section>
   );
 };

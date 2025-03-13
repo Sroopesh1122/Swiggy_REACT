@@ -462,7 +462,7 @@ const FoodCard = ({ data }) => {
           <DiscountBadge discount={discount} />
         </span>
       )}
-      <div className="w-full h-[150px] lg:h-[120px] object-fit relative">
+      <div className="w-full h-[150px] lg:h-[120px] object-fit relative -z-40">
         <img src={img} className="w-full h-full" alt="" />
       </div>
 
@@ -504,7 +504,7 @@ const FoodCard = ({ data }) => {
 
 const DiscountBadge = ({ discount = 0 }) => {
   return (
-    <span className="w-8 h-8 rounded-full bg-green-600 text-white text-[0.85rem] flex justify-center items-center">
+    <span className="w-6 h-6 rounded-full bg-green-600 text-white text-[0.7rem] flex justify-center items-center">
       {discount}%
     </span>
   );

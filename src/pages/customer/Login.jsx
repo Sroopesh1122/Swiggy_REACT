@@ -14,7 +14,7 @@ import axios from "axios";
 const Login = () => {
   
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate();//navigation between pages
 
   const userSignIn = async (val) => {
     const response = await axios.post(serverUrl+"auth/user/signin",val);
