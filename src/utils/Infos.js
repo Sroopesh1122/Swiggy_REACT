@@ -1,5 +1,8 @@
-export const serverUrlAPI = "http://localhost:8085/api/";
-export const serverUrl = "http://localhost:8085/";
+const server_url = import.meta.env.VITE_SERVER_URL
+
+
+export const serverUrlAPI = server_url;
+export const serverUrl = server_url.replace("api/","");
 
 
 
