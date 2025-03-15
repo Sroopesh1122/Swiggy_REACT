@@ -18,7 +18,7 @@ const RAddMenuItem = () => {
     const addItem  = async(data)=>{
       const restaurantId = queryClient.getQueryData(["profile"]).restaurantId || 0;
        data = { ...data , restaurantId}
-        const response = await axiosInstance.post(serverUrl+"api/menu/create",data)
+        const response = await axiosInstance.post(serverUrl+"api/menu/secure/create",data)
         return response.data;
     }
 

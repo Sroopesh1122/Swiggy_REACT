@@ -44,7 +44,7 @@ const Home = () => {
   ];
 
   const topRatedRestaurant = async () => {
-    const response = await axiosInstance.get("restaurant/top-rated");
+    const response = await axiosInstance.get("restaurant/public/top-rated");
     return response.data;
   };
 

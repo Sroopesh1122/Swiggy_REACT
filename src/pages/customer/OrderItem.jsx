@@ -29,7 +29,7 @@ const OrderItem = () => {
   const fetchOrderItem = async () => {
     const { orderId } = orderItem;
 
-    const response = await axiosInstance.get(`${serverUrlAPI}order/`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}order/public/`, {
       params: {
         orderId: orderId,
       },
@@ -39,7 +39,7 @@ const OrderItem = () => {
   };
 
   const fetchSimilarItems = async (categories) => {
-    const response = await axiosInstance.get(`${serverUrlAPI}menu/similar`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}menu/public/similar`, {
       params: {
         q: categories || "",
         page: 1,

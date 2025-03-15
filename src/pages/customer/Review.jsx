@@ -35,7 +35,7 @@ const Review = () => {
         itemId:menuId,
         userId
     }
-    const response = await axiosInstance.post(`${serverUrlAPI}review/`,data);
+    const response = await axiosInstance.post(`${serverUrlAPI}review/secure/`,data);
     return response.data;
   }
 

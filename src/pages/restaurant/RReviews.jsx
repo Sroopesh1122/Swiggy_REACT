@@ -23,7 +23,7 @@ const RReviews = () => {
     };
 
     const response = await axiosInstance.get(
-      `${serverUrlAPI}review/restaurant`,
+      `${serverUrlAPI}review/secure/restaurant`,
       {
         params: data,
       }
@@ -55,8 +55,6 @@ const RReviews = () => {
     },
   });
 
-
-  console.log(reviewData)
 
   if (reviewLoading) {
     return <PageLoder />;

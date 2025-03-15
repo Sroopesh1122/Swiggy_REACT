@@ -15,7 +15,7 @@ const Orders = () => {
 
     const userId = queryClient.getQueryData(["profile"])?.userId || 0;
 
-    const response = await axiosInstance.get(`${serverUrlAPI}order/user`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}order/secure/user`, {
       params: {
         page: pageParam,
         limit: ORDER_PAGE_LIMIT,

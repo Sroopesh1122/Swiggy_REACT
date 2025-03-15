@@ -24,7 +24,7 @@ const RHome = () => {
     };
 
     const response = await axiosInstance.get(
-      `${serverUrlAPI}review/restaurant`,
+      `${serverUrlAPI}review/secure/restaurant`,
       {
         params: data,
       }
@@ -88,8 +88,6 @@ const RHome = () => {
 export default RHome;
 
 const RecentReviews = ({data}) => {
-
-  console.log(data)
 
   const {review , menuItem ,reviewedBy} = data || {};
 

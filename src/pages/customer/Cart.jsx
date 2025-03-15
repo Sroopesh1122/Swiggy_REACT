@@ -18,10 +18,12 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
+
+  //TO get All cart items by userID
   const getCartItems = async () => {
     const { userId } = queryClient.getQueryData(["profile"]) || 0;
 
-    const response = await axiosInstance.get(`${serverUrlAPI}cart/`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}cart/secure/`, {
       params: {
         userId,
       },
@@ -263,7 +265,7 @@ const CartCard = ({ data, onQuantityChange = () => {} }) => {
   const { name, img, price, discount, available } = menuItem || {};
 
   const deleteCartItem = async () => {
-    const response = await axiosInstance.delete(`${serverUrlAPI}cart/`, {
+    const response = await axiosInstance.delete(`${serverUrlAPI}cart/secure/`, {
       params: {
         cartId: cartId,
       },

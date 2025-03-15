@@ -33,7 +33,7 @@ const DOrders = () => {
   };
 
   const fetchDeliveries = async ({ pageParam = 1 }) => {
-    const response = await axiosInstance.get(`${serverUrlAPI}deliveries/`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}deliveries/public/`, {
       params: {
         page: pageParam,
         limit: ORDER_PAGE_LIMIT,

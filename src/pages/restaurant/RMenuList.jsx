@@ -24,7 +24,7 @@ const RMenuList = () => {
     const restaurantId = queryClient.getQueryData(["profile"]).restaurantId || 0;
     const limit = 12;
     const response = await axiosInstance.get(
-      serverUrlAPI + "menu/restaurant/menu-list",
+      serverUrlAPI + "menu/secure/restaurant/menu-list",
       {
         params: {
           page: pageParam,

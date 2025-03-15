@@ -27,7 +27,7 @@ const RFoodupdate = () => {
   };
 
   const fetchReview = async ({ pageParam = 1 }) => {
-      const response = await axiosInstance.get(`${serverUrlAPI}review/menuItem`, {
+      const response = await axiosInstance.get(`${serverUrlAPI}review/public/menuItem`, {
         params: {
           id: menuId,
           page: pageParam,
@@ -46,7 +46,7 @@ const RFoodupdate = () => {
 
   const updateItem = async (data) => {
     const response = await axiosInstance.put(
-      serverUrl + "api/menu/update",
+      serverUrl + "api/menu/secure/update",
       data
     );
     return response.data;

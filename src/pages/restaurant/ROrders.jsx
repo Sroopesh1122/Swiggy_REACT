@@ -41,7 +41,7 @@ const ROrders = () => {
       restaurantId
     };
     const response = await axiosInstance.get(
-      `${serverUrlAPI}order/restaurant`,
+      `${serverUrlAPI}order/secure/restaurant`,
       {
         params: data,
       }
@@ -79,8 +79,6 @@ const ROrders = () => {
   const orderItemList = ordersData?.pages?.reduce((result, page) => {
     return [...result, ...page?.orders];
   }, []);
-
-  console.log(orderItemList);
 
   return (
     <section className="w-full mx-auto  max-w-[1200px] min-h-screen p-1 my-2">
@@ -165,7 +163,7 @@ const OrderCard = ({ data }) => {
   const updateOrderStatus = async (status) => {
     const data = { orderId, status };
     const response = await axiosInstance.put(
-      `${serverUrlAPI}order/status`,
+      `${serverUrlAPI}order/secure/status`,
       data
     );
     return response.data;

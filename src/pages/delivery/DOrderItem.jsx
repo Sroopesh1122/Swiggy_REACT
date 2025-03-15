@@ -57,7 +57,7 @@ const DOrderItem = () => {
 
 
   const orderDelivery = async()=>{
-    const response = await axiosInstance.put(`${serverUrlAPI}deliveries/order/verify/status`,{
+    const response = await axiosInstance.put(`${serverUrlAPI}deliveries/secure/order/verify/status`,{
         deliveryId,
         deliveryCode : deliveryCodeInputRef.current.value
     })

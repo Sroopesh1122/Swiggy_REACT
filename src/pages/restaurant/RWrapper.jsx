@@ -12,7 +12,7 @@ const RWrapper = () => {
   const queryClient = useQueryClient();
 
   const fetcRestaurantData = async ()=>{
-    const response = await axiosInstance.get(`${serverUrlAPI}restaurant/profile`);
+    const response = await axiosInstance.get(`${serverUrlAPI}restaurant/secure/profile`);
     sessionStorage.setItem("user",JSON.stringify(response.data));
     return response.data;
   }

@@ -64,13 +64,13 @@ const Menu = () => {
 
   const fetchSuggestion = async () => {
     const response = await axiosInstance.get(
-      serverUrlAPI + "menu/suggestions?filter=" + debouncedSearchText
+      serverUrlAPI + "menu/public/suggestions?filter=" + debouncedSearchText
     );
     return response.data;
   };
 
   const fetchMenuData = async ({ pageParam = 1 }) => {
-    const response = await axiosInstance.get(serverUrlAPI + "menu/food", {
+    const response = await axiosInstance.get(serverUrlAPI + "menu/public/food", {
       params: {
         q: searchParam.get("q"),
         page: pageParam,

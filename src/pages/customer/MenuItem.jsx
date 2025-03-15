@@ -26,13 +26,13 @@ const MenuItem = () => {
     if (menuId === null) {
       return;
     }
-    const response = await axiosInstance.get(`${serverUrlAPI}menu/${menuId}`);
+    const response = await axiosInstance.get(`${serverUrlAPI}menu/public/${menuId}`);
     return response.data;
   };
 
   const restaurantDataFetch = async (restaurantId) => {
     const response = await axiosInstance.get(
-      `${serverUrlAPI}restaurant/${restaurantId}`
+      `${serverUrlAPI}restaurant/public/${restaurantId}`
     );
     return response.data;
   };
@@ -41,12 +41,12 @@ const MenuItem = () => {
 
     const userId = queryClient.getQueryData(["profile"])?.userId || 0 ;
     val = {...val,userId}
-    const response = await axiosInstance.post(`${serverUrlAPI}cart/add`, val);
+    const response = await axiosInstance.post(`${serverUrlAPI}cart/secure/add`, val);
     return response.data;
   };
 
   const fetchReview = async ({ pageParam = 1 }) => {
-    const response = await axiosInstance.get(`${serverUrlAPI}review/menuItem`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}review/public/menuItem`, {
       params: {
         id: searchParam.get("id"),
         page: pageParam,
@@ -58,7 +58,7 @@ const MenuItem = () => {
   };
 
   const fetchSimilarItems = async (categories) => {
-    const response = await axiosInstance.get(`${serverUrlAPI}menu/similar`, {
+    const response = await axiosInstance.get(`${serverUrlAPI}menu/public/similar`, {
       params: {
         q: categories || "",
         page: 1,

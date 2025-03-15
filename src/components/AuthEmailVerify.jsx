@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { getErrorMessage,  serverUrl } from "../utils/Infos";
 import { Loader } from "lucide-react";
-
+import verification from '../assets/img/verification.png'
 const AuthEmailVerify = () => {
 
   const [searchParam] = useSearchParams();
@@ -18,8 +18,6 @@ const AuthEmailVerify = () => {
   const navigate = useNavigate();
 
   const [startTimer ,setStartTimer] = useState(email!==""?true:false);
-
-
 
 
   const requestOtp = async(val)=>{
@@ -82,8 +80,10 @@ const requestOtpMutation = useMutation({
   }
 
   return (
-    <section className="w-full h-screen flex justify-center items-center relative">
-      <article className="p-5 shadow-md rounded-lg absolute right-11 top-[50%] -translate-y-[50%] w-[350px]">
+    <section className="w-full h-screen flex justify-center items-center relative flex-col">
+      
+      <img src={verification} alt="" className="w-[50px] h-[50px]" />
+      <article className="p-5 shadow-md rounded-lg  w-[350px]">
         <h1 className="text-center text-3xl">Email Verification</h1>
 
         <div className="mt-3 w-full">

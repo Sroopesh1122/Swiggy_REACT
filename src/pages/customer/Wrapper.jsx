@@ -12,7 +12,7 @@ const Wrapper = () => {
   const queryClient = useQueryClient();
 
   const fetcCustomerData = async ()=>{
-    const response = await axiosInstance.get(`${serverUrlAPI}user/profile`);
+    const response = await axiosInstance.get(`${serverUrlAPI}user/secure/profile`);
     sessionStorage.setItem("user",JSON.stringify(response.data));
     return response.data;
   }

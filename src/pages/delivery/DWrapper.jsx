@@ -13,7 +13,7 @@ const DWrapper = () => {
 
   const fetchProfileData = async()=>{
 
-    const response = await axiosInstance.get(`${serverUrl}delivery/profile`);
+    const response = await axiosInstance.get(`${serverUrl}delivery/secure/profile`);
 
     return response.data;
 

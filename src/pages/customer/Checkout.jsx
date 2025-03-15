@@ -51,7 +51,7 @@ const Checkout = () => {
         };
       }),
     };
-    const response = await axiosInstance.post(`${serverUrlAPI}order/`, data);
+    const response = await axiosInstance.post(`${serverUrlAPI}order/secure/`, data);
     return response.data;
   };
 
@@ -59,7 +59,7 @@ const Checkout = () => {
     const amount =
       totalAmount === checkoutAmount ? totalAmount : checkoutAmount;
     const response = await axiosInstance.post(
-      `${serverUrlAPI}payment/create/order`,
+      `${serverUrlAPI}payment/secure/create/order`,
       {
         amount,
       }
@@ -89,7 +89,7 @@ const Checkout = () => {
 
           try {
             verifyResponse = await axiosInstance.post(
-              `${serverUrlAPI}payment/verify`,
+              `${serverUrlAPI}payment/secure/verify`,
               {
                 razorpayOrderId: razorpay_order_id,
                 razorpayPaymentId: razorpay_payment_id,

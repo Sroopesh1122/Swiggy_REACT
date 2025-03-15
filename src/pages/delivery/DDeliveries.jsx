@@ -18,7 +18,7 @@ const DDeliveries = () => {
 
   const getUndeliveredOrders = async ({ pageParam = 1 }) => {
     const response = await axiosInstance.get(
-      `${serverUrlAPI}order/not-delivered`,
+      `${serverUrlAPI}order/public/not-delivered`,
       {
         params: {
           page: pageParam,
@@ -133,7 +133,7 @@ const OrderCard = ({ data }) => {
 
     const {partnerId} = queryClient.getQueryData(["profile"]);
 
-    const response = await axiosInstance.post(`${serverUrlAPI}order/pick`, {
+    const response = await axiosInstance.post(`${serverUrlAPI}order/secure/pick`, {
       orderId: orderId,
       deliveryPartnerId: partnerId
     });
